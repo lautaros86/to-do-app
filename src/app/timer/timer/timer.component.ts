@@ -13,12 +13,17 @@ export class TimerComponent {
   display = '';
   interval = interval(1000);
   subscribe: any;
+  textBtn = 'Play';
 
   tooglerTimer() {
-   this.subscribe && !this.subscribe.closed ? this.pause() : this.start();
+    this.isTimerOn() ? this.pause() : this.start();
   }
 
+  isTimerOn() {
+    return this.subscribe && !this.subscribe.closed
+  }
   start() {
+    this.textBtn = 'Pause';
     this.subscribe = this.interval.subscribe((_) => {
       if (this.time > 0) {
         this.time--;
@@ -31,6 +36,7 @@ export class TimerComponent {
   }
 
   pause() {
+    this.textBtn = 'Start';
     this.subscribe.unsubscribe();
   }
 
