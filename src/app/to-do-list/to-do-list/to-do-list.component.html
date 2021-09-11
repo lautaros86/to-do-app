@@ -1,0 +1,40 @@
+<div class="demo-button-container">
+    <button mat-raised-button (click)="addTask(newTask)" class="demo-button" [disabled]="newTask.value === ''">
+        Add task
+    </button>
+    <form class="example-form" (keydown.enter)="onSubmit($event, newTask)">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>New Task</mat-label>
+            <input matInput placeholder="Ex. Check Pizza" #newTask />
+        </mat-form-field>
+    </form>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.description}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+            <app-timer [time]="5"></app-timer>
+            <button mat-raised-button [disabled]="!dataSource.length" (click)="removeTask(element)" mat-mini-fab
+                color="primary">
+                <mat-icon>{{deleteIcon}}</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

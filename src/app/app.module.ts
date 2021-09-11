@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TimerModule } from './timer/timer.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToDoListModule } from './to-do-list/to-do-list.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TimerModule,
+    ToDoListModule,
     BrowserAnimationsModule,
   ],
   providers: [],
