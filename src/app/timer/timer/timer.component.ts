@@ -13,6 +13,9 @@ export class TimerComponent {
 
   @Input()
   time: number = 1800;
+  @Input()
+  showPlayPause = true;
+  
   display = '';
   interval = interval(1000);
   subscribe: any;

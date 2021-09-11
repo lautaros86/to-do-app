@@ -2,13 +2,12 @@
     <input (click)="tooglerTimer()" type="checkbox" value="None" id="playpause" name="check" checked/>
     <label for="playpause" tabindex=1></label>
 </div> -->
-<div>
+<div *ngIf="showPlayPause">
     <button (click)="tooglerTimer()" mat-mini-fab color="primary">
         <mat-icon>{{iconBtn}}</mat-icon>
     </button>
-    <span>  {{display}}</span>
+    <span>{{display}}</span>
 </div>
-
 
 <!-- <svg width="50" height="50" viewbox="0 0 250 250">
     <path #border id="border" transform="translate(125, 125)" />
