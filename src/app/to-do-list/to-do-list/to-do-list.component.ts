@@ -17,9 +17,11 @@ export class ToDoListComponent implements OnInit {
   deleteIcon = 'delete';
   idCouter = 1;
   showPlayPause = false;
+  displayTime = '00:00:00';
+  totalTime = 0;
 
   ngOnInit() {
-    this.idCouter = this.dataSource[this.dataSource.length - 1].id + 1
+    this.idCouter = this.dataSource[this.dataSource.length - 1].id + 1;
   }
 
 
@@ -38,5 +40,21 @@ export class ToDoListComponent implements OnInit {
   toogleButton(val: boolean) {
     console.log("valor es: ", val)
     this.showPlayPause = val;
+  }
+  increaseTotalTime(time: number) {
+    this.totalTime = this.totalTime + time;
+    this.displayTime = this.transform(this.totalTime);
+  }
+
+  transform(value: number): string {
+    let sec_num = value;
+    let hours = Math.floor(sec_num / 3600).toString();
+    let minutes = Math.floor((sec_num - (+hours * 3600)) / 60).toString();
+    let seconds = (sec_num - (+hours * 3600) - (+minutes * 60)).toString();
+
+    if (hours.length < 2) { hours = "0" + hours; }
+    if (minutes.length < 2) { minutes = "0" + minutes; }
+    if (seconds.length < 2) { seconds = "0" + seconds; }
+    return `${hours}:${minutes}:${seconds}`;
   }
 }

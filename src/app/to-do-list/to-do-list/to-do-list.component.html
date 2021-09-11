@@ -22,10 +22,12 @@
                     color="primary">
                     <mat-icon>{{deleteIcon}}</mat-icon>
                 </button>
-                <app-timer [time]="2" class></app-timer>
+                <app-timer [time]="30" (elapsedTime)="increaseTotalTime($event)"></app-timer>
             </div>
         </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+{{displayTime}}
