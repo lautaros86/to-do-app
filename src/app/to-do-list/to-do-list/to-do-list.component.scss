@@ -1,7 +1,12 @@
 table {
-    width: 100%;
-  }
+  width: 500px;
+  margin-top: 25px;
+}
 
-  .addTaskButton {
-    margin-right: 25px;
-  }
+.addTaskButton {
+  margin-right: 25px;
+}
+
+.action-container {
+  display: flex;
+}

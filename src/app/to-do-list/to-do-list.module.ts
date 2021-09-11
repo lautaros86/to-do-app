@@ -8,11 +8,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 
 
 @NgModule({
-  declarations: [ToDoListComponent],
+  declarations: [ToDoListComponent, TaskFormComponent],
   imports: [
     CommonModule,
     MatTableModule,
