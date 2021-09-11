@@ -1,0 +1,11 @@
+<div class="container">
+    <button mat-raised-button (click)="onSubmit($event, newTask)" [disabled]="newTask.value === ''">
+        Add task
+    </button>
+    <form class="form" (keydown.enter)="onSubmit($event, newTask)">
+        <mat-form-field appearance="fill">
+            <mat-label>New Task</mat-label>
+            <input matInput placeholder="Ex. Check Pizza" #newTask />
+        </mat-form-field>
+    </form>
+</div>
