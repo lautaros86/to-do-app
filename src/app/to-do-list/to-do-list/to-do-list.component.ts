@@ -14,7 +14,7 @@ export class ToDoListComponent implements OnInit {
   table!: MatTable<ToDoElement>;
 
   displayedColumns: string[] = ['id', 'description', 'action'];
-  dataSource: ToDoElement[] = [{ id: 2, description: 'asdadsa', timeElapsed: 0 }];
+  dataSource: ToDoElement[] = [{ id: 2, description: 'asdadsa'}];
   deleteIcon = 'delete';
   idCouter = 1;
   showPlayPause = false;
