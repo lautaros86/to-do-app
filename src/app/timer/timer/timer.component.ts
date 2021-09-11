@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { interval } from 'rxjs';
 
+const playIcon = 'play_arrow';
+const pauseIcon = 'pause';
+
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
@@ -13,7 +16,7 @@ export class TimerComponent {
   display = '';
   interval = interval(1000);
   subscribe: any;
-  textBtn = 'Play';
+  iconBtn = playIcon;
 
   tooglerTimer() {
     this.isTimerOn() ? this.pause() : this.start();
@@ -23,9 +26,10 @@ export class TimerComponent {
     return this.subscribe && !this.subscribe.closed
   }
   start() {
-    this.textBtn = 'Pause';
+    this.iconBtn = pauseIcon;
+    this.display = this.transform(this.time);
     this.subscribe = this.interval.subscribe((_) => {
-      if (this.time > 0) {
+      if (this.time >= 1) {
         this.time--;
         this.display = this.transform(this.time)
       } else {
@@ -36,7 +40,7 @@ export class TimerComponent {
   }
 
   pause() {
-    this.textBtn = 'Start';
+    this.iconBtn = playIcon;
     this.subscribe.unsubscribe();
   }
 
