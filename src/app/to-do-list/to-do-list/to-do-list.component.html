@@ -22,7 +22,7 @@
                     color="primary">
                     <mat-icon>{{deleteIcon}}</mat-icon>
                 </button>
-                <app-timer [time]="30" (elapsedTime)="increaseTotalTime($event)"></app-timer>
+                <app-timer [time]="30" (elapsedTime)="increaseTotalTime($event, element.id)"></app-timer>
             </div>
         </td>
     </ng-container>
@@ -30,4 +30,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-{{displayTime}}
+{{totalTime | timeHours}}

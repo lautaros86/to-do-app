@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { interval } from 'rxjs';
+import { TaskService } from 'src/app/services/task.service';
 
 const playIcon = 'play_arrow';
 const pauseIcon = 'pause';
@@ -18,13 +19,11 @@ export class TimerComponent {
   @Output()
   elapsedTime = new EventEmitter<number>()
   
-  display = '';
   interval = interval(1000);
   subscribe: any;
   iconBtn = playIcon;
-
+  endTimeMessage = 'Time is over';
   startTime = 0;
-
 
   tooglerTimer() {
     this.isTimerOn() ? this.pause() : this.start();
@@ -36,13 +35,10 @@ export class TimerComponent {
   start() {
     this.startTime = this.time;
     this.iconBtn = pauseIcon;
-    this.display = this.transform(this.time);
     this.subscribe = this.interval.subscribe((_) => {
       if (this.time >= 1) {
         this.time--;
-        this.display = this.transform(this.time)
       } else {
-        this.display = 'Time is over';
         this.pause();
       }
     });
