@@ -14,6 +14,10 @@ export class TimerComponent {
   interval = interval(1000);
   subscribe: any;
 
+  tooglerTimer() {
+   this.subscribe && !this.subscribe.closed ? this.pause() : this.start();
+  }
+
   start() {
     this.subscribe = this.interval.subscribe((_) => {
       if (this.time > 0) {

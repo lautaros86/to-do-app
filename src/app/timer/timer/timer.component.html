@@ -1,4 +1,11 @@
-<button (click)='start()'>Start</button>
-<button (click)='pause()'>Pause</button>
-
+<div class="playpause">
+    <input (click)="tooglerTimer()" type="checkbox" value="None" id="playpause" name="check" checked/>
+    <label for="playpause" tabindex=1></label>
+</div>
 <p>{{display}}</p>
+
+
+<svg width="50" height="50" viewbox="0 0 250 250">
+    <path #border id="border" transform="translate(125, 125)" />
+    <path #loader id="loader" transform="translate(125, 125) scale(.84)" />
+</svg>
