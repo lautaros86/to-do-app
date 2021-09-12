@@ -1,14 +1,22 @@
-svg {
-  display: block;
-  margin: 5px auto;
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
 }
 
-#loader {
-  fill: #0088cc;
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
 }
 
-#border {
-  fill: #00517a;
+#countdown-number {
+  color: white;
+  display: inline-block;
+  line-height: 40px;
 }
 
 .playpause {
@@ -41,6 +49,7 @@ svg {
 .timer-container {
   width: 160px;
 }
+
 button {
   margin-right: 15px;
 }

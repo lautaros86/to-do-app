@@ -17,7 +17,7 @@ export class TimerComponent {
   showPlayPause = true;
   @Output()
   elapsedTime = new EventEmitter<number>()
-  
+
   interval = interval(1000);
   subscribe: any;
   iconBtn = playIcon;
