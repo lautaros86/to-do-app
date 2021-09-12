@@ -16,13 +16,14 @@ export class TimerComponent {
   @Input()
   showPlayPause = true;
   @Output()
-  elapsedTime = new EventEmitter<number>()
 
+  elapsedTime = new EventEmitter<number>()
   interval = interval(1000);
   subscribe: any;
   iconBtn = playIcon;
   endTimeMessage = 'Time is over';
   startTime = 0;
+  paused = false;
 
   tooglerTimer() {
     this.isTimerOn() ? this.pause() : this.start();
@@ -31,6 +32,7 @@ export class TimerComponent {
   isTimerOn() {
     return this.subscribe && !this.subscribe.closed
   }
+
   start() {
     this.startTime = this.time;
     this.iconBtn = pauseIcon;
@@ -48,10 +50,4 @@ export class TimerComponent {
     this.subscribe.unsubscribe();
     this.elapsedTime.emit(this.startTime - this.time)
   }
-
-  transform(value: number): string {
-    const minutes: number = Math.floor(value / 60);
-    return minutes + ':' + (value - minutes * 60);
-  }
-
 }
