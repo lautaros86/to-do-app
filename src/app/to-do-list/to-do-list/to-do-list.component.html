@@ -29,5 +29,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-{{totalTime | timeHours}}
+<div clsas="elapsedTime">
+    <p>
+        <span>Tiempo total transcurrido: {{totalTime | timeHours}}</span>
+    </p>
+</div>
