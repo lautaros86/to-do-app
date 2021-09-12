@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { interval } from 'rxjs';
-import { TaskService } from 'src/app/services/task.service';
 
 const playIcon = 'play_arrow';
 const pauseIcon = 'pause';
